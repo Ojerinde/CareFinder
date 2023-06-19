@@ -26,15 +26,11 @@ const Login = () => {
   useEffect(() => {
     if (session) {
       updateLoggedInState({ isLoggedIn: true, email: session?.user?.email });
-      console.log("updated", isLoggedIn);
-
       if (isLoggedIn.isLoggedIn) {
-        console.log("redirec", isLoggedIn);
-
         router.push("/home ");
       }
     }
-  }, [session, isLoggedIn]);
+  }, [session]);
 
   return (
     <>
