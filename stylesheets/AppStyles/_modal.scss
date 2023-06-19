@@ -1,0 +1,28 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 20;
+  backdrop-filter: blur(2px);
+  background-color: rgba(42, 42, 43, 0.324);
+}
+
+.overlay {
+  position: fixed;
+  top: 35vh;
+  left: 40vw;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vh;
+  border-radius: 0.7rem;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  z-index: 30;
+  color: rgb(25, 41, 66);
+  background-color: rgb(221, 213, 213);
+}
+

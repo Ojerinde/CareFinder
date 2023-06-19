@@ -1,0 +1,111 @@
+.text__editor {
+  width: 100%;
+  margin: 3rem 0;
+}
+.textarea {
+  width: 100%;
+  padding: 1rem 1.4rem;
+  border: 0.1rem solid var(--primary-dark-color);
+  border-radius: 1rem;
+  margin: 0.8rem 0 0 0;
+  height: 15rem;
+  font-size: 1.7rem;
+  font-weight: 400;
+  color: var(--tertiary-light-color);
+}
+.textarea:focus {
+  border: 0.1rem solid var(--tertiary-light-color);
+  outline: none;
+}
+.textarea::placeholder {
+  color: var(--tertiary-light-color);
+  font-weight: 300;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+}
+
+.markdown {
+  margin: 0 auto;
+  height: fit-content;
+  min-height: 15rem;
+  overflow-y: scroll;
+  width: 100%;
+  font-size: 1.4rem;
+  padding: 1rem 1rem 1rem 2rem;
+  border: 0.1rem solid var(--primary-dark-color);
+}
+
+.markdown h1 {
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+.markdown h2 {
+  font-size: 2rem;
+}
+.markdown h3 {
+  font-size: 1.5rem;
+}
+.markdown h4 {
+  font-size: 1.2rem;
+}
+.markdown p {
+  font-size: 1.3rem;
+  line-height: 3rem;
+}
+
+.markdown ul {
+  margin-left: 1.5rem;
+  list-style: inside;
+}
+.markdown li {
+  font-size: 1.3rem;
+  line-height: 3rem;
+}
+.markdown a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: var(--primary-dark-color);
+  transition: all 0.3s;
+}
+.markdown a:hover {
+  color: var(--primary-light-color);
+}
+
+.btn__box {
+  width: 100%;
+  margin: 1rem 0 0;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.button {
+  margin-right: 2rem;
+  border: none;
+  border-radius: 0.2rem;
+  width: fit-content;
+  font-size: var(--default-font-size);
+  font-family: var(--default-font-family);
+  font-weight: 400;
+  cursor: pointer;
+  letter-spacing: 0.5rem;
+  padding: 0.7rem 1.3rem;
+  background: linear-gradient(
+    to bottom left,
+    var(--primary-color),
+    var(--primary-light-color)
+  );
+  color: var(--secondary-color);
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background: linear-gradient(
+    to bottom left,
+    var(--primary-light-color),
+    var(--primary-color)
+  );
+}
+
+.active {
+  opacity: 0.5 !important;
+}

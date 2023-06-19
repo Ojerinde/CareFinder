@@ -1,0 +1,56 @@
+.signup__form {
+  width: 100%;
+  margin: 1rem auto;
+}
+
+.invalid__feedback {
+  width: 100%;
+  margin-top: -2rem;
+  color: var(--invalid-color);
+  font-size: 1.4rem;
+  letter-spacing: 0.03rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn__box {
+  width: 100%;
+  margin: 3rem 0 0;
+}
+
+.button {
+  border: none;
+  border-radius: 0.2rem;
+  width: 100%;
+  font-size: var(--default-font-size);
+  font-family: var(--default-font-family);
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.5rem;
+  padding: 1rem 0;
+  background: linear-gradient(
+    to bottom left,
+    var(--primary-color),
+    var(--primary-light-color)
+  );
+  color: var(--secondary-color);
+  transition: all 0.3s;
+}
+
+.button:hover {
+  background: linear-gradient(
+    to bottom left,
+    var(--primary-light-color),
+    var(--primary-color)
+  );
+}
+
+
+
+@media only screen and (max-width: 650px) {
+  .invalid__input {
+    width: 100%;
+    margin-top: -2rem;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+  }
+}

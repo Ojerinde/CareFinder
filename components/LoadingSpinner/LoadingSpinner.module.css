@@ -1,0 +1,39 @@
+.spinner__box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.spinner__box svg {
+  height: 4rem;
+  width: 4rem;
+  fill: var(--primary-light-color);
+  animation: spinner 2s linear infinite;
+}
+.spinner__box p {
+  margin: 1.5rem 0;
+  font-weight: 500;
+  font-size: 1.8rem;
+  font-family: var(--default-header-family);
+  background: linear-gradient(
+    135deg,
+    hsla(240, 100%, 60%, 1) 0%,
+    hsla(240, 76%, 60%, 1) 10%,
+    hsl(240, 100%, 70%) 24%,
+    hsl(240, 88%, 65%) 45%,
+    hsl(240, 88%, 65%) 75%,
+    hsl(240, 100%, 53%) 100%
+  );
+  color: transparent;
+  background-clip: text;
+  letter-spacing: 0.3rem;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

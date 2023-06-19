@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "Abstracts/variables.scss";
+@import "Abstracts/modules.css";
+@import "Abstracts/mixin.scss";
+
+@import "AppStyles/index.scss";
+@import "AppStyles/input.scss";
+@import "AppStyles/card.scss";
+@import "AppStyles/loadingSpinner.scss";
+@import "AppStyles/button.scss";
+@import "AppStyles/selectInput.scss";
+@import "AppStyles/header.scss";
+@import "AppStyles/allHospitals.scss";
+@import "AppStyles/home.scss";
+@import "AppStyles/hospital.scss";
+// @import "AppStyles/modal.scss";

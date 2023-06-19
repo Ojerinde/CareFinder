@@ -1,0 +1,29 @@
+$primary-color: #33f;
+$primary-light-color: #66f;
+$primary-dark-color: #11f;
+
+$secondary-color: #fff;
+$secondary-light-color: #e6e6e6;
+$secondary-dark-color: #b3b3b3;
+
+$tertiary-color: #222;
+$tertiary-light-color: #333;
+$tertiary-dark-color: #111;
+
+$invalid-color: #ec1228;
+
+$default-font-size: 1.7rem;
+$default-font-family: "Roboto", sans-serif;
+$default-header-family: "Nunito", sans-serif;
+
+
+$shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+$shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.06);
+
+$line: 1px solid $secondary-dark-color;
+
+$bp--largest: 1400px;
+$bp--large: 1000px;
+$bp--medium: 768px;
+$bp--small: 600px;
+$bp--smallest: 400px;

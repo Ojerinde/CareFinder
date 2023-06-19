@@ -1,0 +1,22 @@
+:root {
+  --primary-color: hsl(240, 100%, 60%);
+  --primary-light-color: hsl(240, 100%, 70%);
+  --primary-dark-color: hsl(240, 100%, 53%);
+
+  --secondary-color: #fff;
+  --secondary-light-color: #e6e6e6;
+  --secondary-dark-color: #b3b3b3;
+
+  --tertiary-color: #222;
+  --tertiary-light-color: #333;
+  --tertiary-dark-color: #111;
+
+  --invalid-color: #ec1228;
+  --success-color: #1da934;
+
+  --default-font-size: 1.7rem;
+  --default-font-family: "Roboto", sans-serif;
+  --default-header-family: "Nunito", sans-serif;
+}
+
+@import "react-toastify/dist/ReactToastify.css";

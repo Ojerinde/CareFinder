@@ -1,0 +1,31 @@
+.hospital__list {
+  list-style: none;
+  width: 100%;
+  margin: 2rem auto 2rem;
+
+  @media only screen and (max-width: 1000px) {
+    width: 85%;
+  }
+  @media only screen and (max-width: 768px) {
+    width: 95%;
+  }
+}
+.hospital__not--found {
+  width: 100%;
+  margin: 2rem 0;
+  font-weight: 500;
+  font-size: 2rem;
+  font-family: var(--default-header-family);
+  background: linear-gradient(
+    135deg,
+    hsla(240, 100%, 60%, 1) 0%,
+    hsla(240, 76%, 60%, 1) 10%,
+    hsl(240, 100%, 70%) 24%,
+    hsl(240, 88%, 65%) 45%,
+    hsl(240, 88%, 65%) 75%,
+    hsl(240, 100%, 53%) 100%
+  );
+  color: transparent;
+  background-clip: text;
+  letter-spacing: 0.2rem;
+}

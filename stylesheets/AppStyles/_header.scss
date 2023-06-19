@@ -1,0 +1,35 @@
+.header {
+  background-color: $primary-color;
+  padding: 1rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media only screen and (max-width: 650px) {
+    flex-wrap: wrap;
+  }
+  &__icon svg {
+    width: 4rem;
+    height: 4rem;
+    fill: $secondary-color;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      fill: $secondary-dark-color;
+    }
+  }
+  a,
+  button {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 0.2rem;
+    color: $secondary-color;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $secondary-dark-color;
+    }
+  }
+}

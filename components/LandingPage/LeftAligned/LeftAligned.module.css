@@ -1,0 +1,131 @@
+.leftaligned {
+  padding: 0 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-style: normal;
+  list-style: none;
+  text-align: left;
+  color: rgba(var(--secondary-color), 0.5);
+}
+.left {
+  flex-basis: 45%;
+}
+.h1 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 3.2rem;
+  color: #225ad6;
+  margin: 4rem 0 8rem;
+}
+
+.h1::after {
+  display: block;
+  content: "";
+  background-color: #2929292c;
+  margin: 0.8rem auto 0;
+  height: 0.05rem;
+  width: 67.7rem;
+}
+
+.h2 {
+  font-weight: 600;
+  font-size: 3.5rem;
+  letter-spacing: 0.2rem;
+  color: var(--primary-color);
+}
+
+.p {
+  font-size: 1.8rem;
+  line-height: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.03rem;
+  text-align: left;
+  color: var(--tertiary-light-color);
+  margin: 2rem 0 3rem;
+}
+
+.button {
+  width: fit-content;
+  letter-spacing: 0.1rem;
+  font-size: 1.7rem;
+  padding: 1.5rem 3rem;
+  background: var(--primary-color);
+  color: #ffffff;
+  transition: all 0.3s;
+  margin-top: 2rem;
+}
+
+.button:hover {
+  background: var(--primary-light-color);
+}
+
+.right {
+  flex-basis: 40%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.img {
+  height: 50%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+
+@media only screen and (max-width: 900px) {
+  .leftaligned {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+
+  .right {
+    text-align: center;
+    width: 100%;
+  }
+
+  .left {
+    width: 80%;
+    margin: 0 auto 3rem;
+    text-align: center;
+  }
+  .h1 {
+    margin: 3rem 1rem 1rem;
+    font-size: 3.2rem;
+    text-align: center;
+  }
+
+  .h2 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+
+  .p {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  .img {
+    height: 60%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .leftaligned {
+    padding: 4rem 2rem;
+  }
+  .left {
+    width: 100%;
+    text-align: center;
+  }
+
+  .h2 {
+    font-size: 2.5rem;
+  }
+
+  .p {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+}

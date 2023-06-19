@@ -1,0 +1,22 @@
+.spinner {
+  &__box {
+    width: 100%;
+
+    @include flex-center;
+  }
+  &__spinner {
+    height: 3rem;
+    width: 3rem;
+    fill: $primary-color;
+    animation: spinner 2s linear infinite;
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,155 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.3rem 6rem;
+}
+.ul {
+  flex-basis: 70%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.li a {
+  font-size: var(--default-font-size);
+  color: rgba(var(--secondary-color), 0.5);
+  padding: 0.7rem 1.2rem;
+  font-weight: 500;
+  margin-left: 1rem;
+  cursor: pointer;
+  border-bottom: 0.2rem solid transparent;
+  border-left: 0.2rem solid transparent;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+.li a:hover {
+  color: rgba(var(--secondary-light-color), 0.5);
+  border-bottom: 0.2rem solid var(--primary-color);
+  border-left: 0.2rem solid var(--primary-color);
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header__button {
+  margin: 0 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  border-radius: 1rem;
+  color: var(--secondary-light-color);
+  background-color: var(--primary-color);
+}
+
+.header__button:hover {
+  background-color: var(--primary-light-color);
+}
+
+.section {
+  width: 100%;
+  padding: 6rem 8rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--secondary-light-color);
+}
+.left {
+  flex-basis: 45%;
+}
+.h1 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: var(--tertiary-light-color);
+}
+.span {
+  color: var(--primary-color);
+}
+
+.p {
+  font-size: 1.8rem;
+  line-height: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.03rem;
+  text-align: left;
+  color: var(--tertiary-light-color);
+  margin: 2rem 0 3rem;
+}
+
+.right {
+  flex-basis: 45%;
+}
+.img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.8rem;
+}
+.button {
+  width: 17.8rem;
+  height: 5.6rem;
+  font-size: 1.4rem;
+  background: var(--primary-color);
+  color: #ffffff;
+  transition: all 0.3s;
+  margin-top: 2rem;
+}
+
+.button:hover {
+  background: var(--primary-light-color);
+}
+
+@media only screen and (max-width: 900px) {
+  .header {
+    padding: 1.3rem 2rem;
+  }
+  .section {
+    flex-direction: column;
+    text-align: center;
+    padding: 4rem 6rem;
+  }
+
+  .right {
+    width: 70%;
+    margin: 2rem auto 3rem;
+  }
+
+  .left {
+    width: 100%;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .h1 {
+    font-size: 2rem;
+  }
+
+  .p {
+    font-size: 1.5rem;
+    line-height: 1.7rem;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .left {
+    width: 100%;
+    text-align: center;
+  }
+
+  .right {
+    width: 100%;
+    padding: 2rem 4rem;
+  }
+
+  .h1 {
+    font-size: 1.5rem;
+  }
+
+  .p {
+    font-size: 1.2rem;
+    margin: 1rem 0 1.5rem;
+  }
+}

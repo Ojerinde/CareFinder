@@ -1,0 +1,56 @@
+.input__group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.label {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--tertiary-light-color);
+}
+
+.input {
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.4rem;
+  border: 0.1rem solid var(--primary-light-color);
+  margin: 0.8rem 0 1.5rem 0;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: rgba(var(--tertiary-light-color), 0.7);
+  width: 100%;
+}
+
+.input:focus {
+  outline: none;
+  border: 0.1rem solid var(--primary-dark-color);
+}
+
+.input::placeholder {
+  color: var(--tertiary-light-color);
+  font-size: 1.7rem;
+  letter-spacing: 0.1rem;
+}
+.is__invalid {
+  border: 0.1rem solid var(--invalid-color);
+}
+
+.eye {
+  position: absolute;
+  top: 63%;
+  right: 5%;
+  transform: translateY(-50%);
+}
+
+.eyeSvg svg {
+  cursor: pointer;
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: var(--tertiary-light-color);
+}
+
+@media screen and (max-width: 1068px) {
+}
