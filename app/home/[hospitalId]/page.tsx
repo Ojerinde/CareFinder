@@ -8,10 +8,11 @@ import remarkGfm from "remark-gfm";
 import LoadingSpinner from "@/app/login/LoadingSpinner/LoadingSpinner";
 import { showToastMessage } from "@/app/login/loginForm";
 import { downloadCSV, shareCSVByEmail } from "@/library/shareFIle";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import classes from "./hospitalDetail.module.css";
 import { ToastContainer } from "react-toastify";
 import { useSession } from "next-auth/react";
+import Button from "@/components/UI/Button/Button";
 
 const HospitalComponent = ({ params }: { params: { hospitalId: string } }) => {
   const { data: session } = useSession();
@@ -78,9 +79,24 @@ const HospitalComponent = ({ params }: { params: { hospitalId: string } }) => {
       showToastMessage("error", error.message);
     }
   };
+
+  // / Navigate back
+  const pathname = usePathname();
+  const lastIndexOfSlash = pathname?.lastIndexOf("/");
+  const goBackHandler = () => {
+    router.push(`${pathname?.slice(0, lastIndexOfSlash)}`);
+  };
+
   return (
     <section className="hospital__section">
       <ToastContainer />
+      <Button
+        type="button"
+        onClick={goBackHandler}
+        className="mb-4 px-6 py-2 border border-primary_color text-[1.4rem] text-primary_light_color cursor-pointer hover:translate-y-1 hover:bg-primary_light_color hover:text-secondary_color duration-[.3s] ease-out"
+      >
+        Go Back
+      </Button>
       <figure>
         <Image
           src={selectedImage}
