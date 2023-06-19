@@ -27,9 +27,14 @@ const Login = () => {
     if (session) {
       updateLoggedInState({ isLoggedIn: true, email: session?.user?.email });
       console.log("updated", isLoggedIn);
-      router.push("/home ");
+
+      if (isLoggedIn.isLoggedIn) {
+        console.log("redirec", isLoggedIn);
+
+        router.push("/home ");
+      }
     }
-  }, [session]);
+  }, [session, isLoggedIn]);
 
   return (
     <>
