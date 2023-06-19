@@ -19,7 +19,7 @@ export interface HospitalData {
 }
 
 const initialState: HospitalData = {
-  country: "",
+  country: "Nigeria",
   state: "",
   lga: "",
   hospitalName: "",
@@ -142,7 +142,7 @@ const SearchHospitalForm: React.FC<Props> = ({
               label="Hospital Name"
               name="hospitalName"
               type="text"
-              placeholder="Enter the hospital name"
+              placeholder="Or search by name"
               onChange={setHospitalName}
               value={state.hospitalName}
             />

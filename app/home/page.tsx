@@ -34,6 +34,7 @@ const Home = () => {
   const {
     isLoggedIn,
     filteredHospitals,
+    allHospitals,
     selectedHospitals,
     updateAllHospitalState,
     updateFilteredHospitals,
@@ -55,7 +56,7 @@ const Home = () => {
   const filterHospitals = (state: string | null, lga: string | null) => {
     // Filter by state only
     if (lga === null || lga.trim() === "") {
-      return filteredHospitals.filter((hospital) => hospital.state === state);
+      return allHospitals.filter((hospital) => hospital.state === state);
     }
 
     // Filter by state and LGA
@@ -65,7 +66,7 @@ const Home = () => {
   };
 
   const filterHospitalByName = (name: string) => {
-    const filteredArray = filteredHospitals.filter((item) => {
+    const filteredArray = allHospitals.filter((item) => {
       const itemName = item.hospitalName.toLowerCase();
       const searchName = name.toLowerCase();
       return itemName.includes(searchName);
@@ -108,9 +109,7 @@ const Home = () => {
   const [pageIsLoading, setPageIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    console.log("isLoggedIn", isLoggedIn);
     if (!isLoggedIn.isLoggedIn) {
-      console.log("Navigating to /");
       router.push("/");
     } else {
       setPageIsLoading(() => false);
