@@ -26,9 +26,8 @@ const Login = () => {
   useEffect(() => {
     if (session) {
       updateLoggedInState({ isLoggedIn: true, email: session?.user?.email });
-      setTimeout(() => {
-        router.push("/home ");
-      }, 1000);
+      console.log("updated", isLoggedIn);
+      router.push("/home ");
     }
   }, [session]);
 
