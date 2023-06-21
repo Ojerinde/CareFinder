@@ -1,0 +1,42 @@
+.li {
+  flex-basis: 30%;
+  padding: 3rem;
+  background-color: var(--secondary-color);
+  box-shadow: 0 0.7rem 0.7rem #4a484888;
+  border-radius: 3rem;
+}
+
+.p {
+  font-weight: 300;
+  font-size: 1.3rem;
+  letter-spacing: 0.05rem;
+  line-height: 2.5rem;
+  text-align: center;
+  color: var(--tertiary-light-color);
+}
+
+.div {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.figure {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.name {
+  margin-left: 1rem;
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--primary-dark-color);
+}
+
+@media only screen and (max-width: 650px) {
+  .li {
+    margin: 3rem 0;
+  }
+}

@@ -6,6 +6,7 @@ import LandingHeader from "./LandingHeader/LandingHeader";
 
 import classes from "./LandingPage.module.css";
 import Footer from "../Footer/Footer";
+import Testimonials from "./Testimonials/Testimonials";
 
 const LandingPage = () => {
   return (
@@ -14,6 +15,7 @@ const LandingPage = () => {
       <LeftAligned />
       <RightAligned />
       <Services />
+      <Testimonials />
       <Footer />
     </div>
   );

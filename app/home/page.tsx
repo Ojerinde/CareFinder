@@ -128,7 +128,7 @@ const Home = () => {
           <AllHospitals
             isLoading={isLoading}
             allHospitals={filteredHospitals}
-            hospitalsPerPage={15}
+            hospitalsPerPage={10}
           />
         </div>
       </section>
