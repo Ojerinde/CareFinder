@@ -36,14 +36,14 @@ const LeftAligned = () => {
         <figure className={classes.right}>
           <Image
             src="/images/2.png"
-            width={200}
+            width={150}
             height={400}
             alt="carefinder"
             style={{ marginBottom: "3rem" }}
           />{" "}
           <Image
             src="/images/1.png"
-            width={200}
+            width={150}
             height={400}
             alt="carefinder"
             style={{ marginTop: "3rem" }}

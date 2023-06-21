@@ -123,11 +123,11 @@
   }
 
   .h1 {
-    font-size: 2rem;
+    font-size: 2.1rem;
   }
 
   .p {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     line-height: 1.7rem;
     text-align: center;
   }
@@ -141,7 +141,7 @@
 
   .right {
     width: 100%;
-    padding: 2rem 4rem;
+    padding: 2rem 1rem;
   }
 
   .h1 {

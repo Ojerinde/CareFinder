@@ -1,9 +1,8 @@
 .services {
   width: 100%;
-  padding: 3rem 6rem 5rem;
+  padding: 4rem 6rem 6rem;
   display: flex;
   flex-direction: column;
-  margin: 4rem auto 3rem;
 }
 .div {
   margin: 0 auto 4rem;
@@ -38,6 +37,9 @@
 }
 
 @media only screen and (max-width: 900px) {
+  .services {
+    padding: 2rem;
+  }
   .ul {
     flex-direction: column;
     justify-content: center;

@@ -96,6 +96,9 @@
     font-size: 3.2rem;
     text-align: center;
   }
+  .right {
+    padding: 2rem;
+  }
 
   .h2 {
     font-size: 2.5rem;
