@@ -100,8 +100,8 @@ const SearchHospitalForm: React.FC<Props> = ({
         Search for an hospital by country, state, lga or name.
       </h1>
       <form className="w-full mx-auto">
-        <div className="flex justify-between max-lg:flex-column">
-          <div className="basis-[45%] max-lg:w-full">
+        <div className="flex justify-between">
+          <div className="basis-[47%] max-lg:w-full">
             <SelectInput
               id={generateUniqueIdentifier()}
               key={generateUniqueIdentifier()}
@@ -112,7 +112,7 @@ const SearchHospitalForm: React.FC<Props> = ({
               value={state.country}
             />
           </div>
-          <div className="basis-[45%] max-lg:w-full">
+          <div className="basis-[47%] max-lg:w-full">
             <SelectInput
               id={generateUniqueIdentifier()}
               key={generateUniqueIdentifier()}
@@ -124,8 +124,8 @@ const SearchHospitalForm: React.FC<Props> = ({
             />
           </div>
         </div>
-        <div className="flex justify-between max-lg:flex-column">
-          <div className="basis-[45%] ">
+        <div className="flex justify-between">
+          <div className="basis-[47%] ">
             <SelectInput
               id={generateUniqueIdentifier()}
               key={generateUniqueIdentifier()}
@@ -136,7 +136,7 @@ const SearchHospitalForm: React.FC<Props> = ({
               value={state.lga}
             />
           </div>
-          <div className="basis-[45%]">
+          <div className="basis-[47%]">
             <InputField
               id="hospitalName"
               label="Hospital Name"

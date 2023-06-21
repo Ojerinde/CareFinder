@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-secondary_light_color py-16 px-32 flex justify-between">
+    <footer className="bg-secondary_light_color py-16 px-32 flex justify-between max-lg:px-8">
       <div className="basis-[35%]">
         <h1 className="text-5xl text-primary_color font-bold mb-6">
           CareFinder

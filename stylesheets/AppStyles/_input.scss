@@ -12,15 +12,17 @@
 
   & input,
   & textarea {
-    padding: 0.7rem 1.4rem;
-    border: 0.1rem solid $secondary-dark-color;
+    padding: 0.68rem 1.4rem;
+    border: 0.1rem solid #6085aa;
     border-radius: 0.4rem;
     margin: 0.5rem 0 1.5rem 0;
     font-size: 1.5rem;
     font-weight: 300;
     color: rgba($tertiary-light-color, 0.7);
     width: 100%;
-
+    @media only screen and (max-width: 650px) {
+      padding: 1.2rem 1.4rem;
+    }
     &:focus {
       outline: none;
       border: 0.1rem solid primary-dark-color;
