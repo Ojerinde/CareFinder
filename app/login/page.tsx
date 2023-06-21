@@ -3,26 +3,27 @@
 import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 import Form, { showToastMessage } from "./loginForm";
-import classes from "./Login.module.css";
 import { FcGoogle } from "react-icons/fc";
-
+// import { FaFacebook } from "react-icons/fa";
+// import { AiFillTwitterCircle } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 import { AppContext } from "@/store/AppContext";
+import classes from "./Login.module.css";
 
 const Login = () => {
   const router = useRouter();
-  const { isLoggedIn, updateLoggedInState } = useContext(AppContext);
+  const { updateLoggedInState } = useContext(AppContext);
 
-  const googleHandler = async () => {
+  const loginHandler = async () => {
     try {
       await signIn("google");
     } catch (error: any) {
       showToastMessage("error", error.message);
     }
   };
-  const { data: session } = useSession();
 
+  const { data: session } = useSession();
   useEffect(() => {
     if (session) {
       updateLoggedInState({ isLoggedIn: true, email: session?.user?.email });
@@ -42,8 +43,11 @@ const Login = () => {
             Create now
           </Link>
         </p>
+        <div className="w-full my-6 text-primary_color text-center text-[2.3rem] tracking-wider font-normal">
+          Or sign in with
+        </div>
         <div id="icons" className={classes.icons}>
-          <FcGoogle onClick={googleHandler} />
+          <FcGoogle onClick={loginHandler} />
         </div>
       </div>
     </>

@@ -1,0 +1,46 @@
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  background-color: #e6e6e6;
+}
+.div {
+  text-align: center;
+}
+
+.h1 {
+  font-size: 4rem;
+  font-weight: 500;
+  color: hsl(240, 100%, 60%);
+}
+.button {
+  margin-top: 3rem;
+  padding: 0.6rem 1.2rem;
+  color: #333;
+  font-size: 1.6rem;
+  cursor: pointer;
+  font-weight: 400;
+  border-radius: 0.3rem;
+  border: 0.2rem solid transparent;
+  transition: all 0.3s;
+}
+.button:hover {
+  border: 0.2rem solid hsl(240, 100%, 60%);
+  color: hsl(240, 100%, 60%);
+  transform: translateY(0.2);
+}
+
+@media only screen and (max-width: 900px) {
+  .h2 {
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  .button {
+    margin-top: 2rem;
+
+    font: 1.4rem;
+    font-weight: 300;
+    padding: 0.4rem 1rem;
+  }
+}

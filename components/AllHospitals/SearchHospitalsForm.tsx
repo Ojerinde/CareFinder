@@ -19,7 +19,7 @@ export interface HospitalData {
 }
 
 const initialState: HospitalData = {
-  country: "Nigeria",
+  country: "",
   state: "",
   lga: "",
   hospitalName: "",
@@ -130,7 +130,7 @@ const SearchHospitalForm: React.FC<Props> = ({
               id={generateUniqueIdentifier()}
               key={generateUniqueIdentifier()}
               label="LGA"
-              placeholder="Choose local government"
+              placeholder="Choose lga"
               options={lgasOptions}
               onSelect={setLGA}
               value={state.lga}

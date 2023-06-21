@@ -5,6 +5,7 @@ import React from "react";
 import LandingHeader from "./LandingHeader/LandingHeader";
 
 import classes from "./LandingPage.module.css";
+import Footer from "../Footer/Footer";
 
 const LandingPage = () => {
   return (
@@ -13,6 +14,7 @@ const LandingPage = () => {
       <LeftAligned />
       <RightAligned />
       <Services />
+      <Footer />
     </div>
   );
 };

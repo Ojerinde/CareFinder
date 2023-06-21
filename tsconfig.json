@@ -36,7 +36,8 @@
     "app/api/auth/[...nextauth]/route.jsx",
     "components/UI/SelectInput/SelectInput.tsx",
     "components/UI/Button/Button.spec.js",
-    "components/LandingPage/LandingHeader/LandingNavigation.test.js"
+    "components/LandingPage/LandingHeader/LandingNavigation.test.js",
+    "components/GoogleMap/GoogleMap.tsx"
   ],
   "exclude": ["node_modules"]
 }

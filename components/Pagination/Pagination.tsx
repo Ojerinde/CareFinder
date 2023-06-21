@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 "use client";
+
 import React, { useState } from "react";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { generatePagination } from "@/library/generatePagination";

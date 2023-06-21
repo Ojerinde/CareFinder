@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdFileDownload, MdShare } from "react-icons/md";
 import { AppContext } from "@/store/AppContext";
 import { ToastContainer } from "react-toastify";
@@ -10,7 +10,6 @@ import SearchHospitalForm from "@/components/AllHospitals/SearchHospitalsForm";
 import { downloadCSV, shareCSVByEmail } from "@/library/shareFIle";
 import AllHospitals from "@/components/AllHospitals/AllHospitals";
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 const fetchHospitals = async (country: string) => {
   const response = await fetch("/api/fetchhospitals", {
@@ -32,7 +31,6 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [sharing, setSharing] = useState<boolean>(false);
   const {
-    isLoggedIn,
     filteredHospitals,
     allHospitals,
     selectedHospitals,
@@ -104,20 +102,6 @@ const Home = () => {
     }
   };
 
-  // Aunthentication check
-  const router = useRouter();
-  const [pageIsLoading, setPageIsLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    if (!isLoggedIn.isLoggedIn) {
-      router.push("/");
-    } else {
-      setPageIsLoading(() => false);
-    }
-  }, []);
-
-  if (pageIsLoading) return <LoadingSpinner />;
-
   return (
     <>
       <ToastContainer />
@@ -127,17 +111,19 @@ const Home = () => {
           onFilter={filterHospitals}
           onFilterByName={filterHospitalByName}
         />
-        <div className="home__icon--box">
-          <h2>Result...</h2>
-          <div className="flex justify-between">
-            <div onClick={shareCSVHandler}>
-              {sharing ? <LoadingSpinner /> : <MdShare />}
-            </div>
-            <div onClick={downloadCSVHandler}>
-              <MdFileDownload />
+        {filteredHospitals.length > 0 && (
+          <div className="home__icon--box">
+            <h2>Result...</h2>
+            <div className="flex justify-between">
+              <div onClick={shareCSVHandler}>
+                {sharing ? <LoadingSpinner /> : <MdShare />}
+              </div>
+              <div onClick={downloadCSVHandler}>
+                <MdFileDownload />
+              </div>
             </div>
           </div>
-        </div>
+        )}
         <div className="w-full">
           <AllHospitals
             isLoading={isLoading}

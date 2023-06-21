@@ -23,9 +23,11 @@ const HospitalComponent = ({ params }: { params: { hospitalId: string } }) => {
     (hos) => hos.hospitalName.replace(/\s/g, "") === hospitalId
   );
   const router = useRouter();
+
   if (!hospital) {
     router.push("/home");
   }
+
   const {
     hospitalName,
     selectedImage,
@@ -145,6 +147,7 @@ const HospitalComponent = ({ params }: { params: { hospitalId: string } }) => {
           </ReactMarkdown>
         </span>
       </article>
+      <div></div>
       <div className="hospital__icons">
         <div onClick={shareCSVHandler}>
           {sharing ? <LoadingSpinner /> : <FaShareAlt />}
