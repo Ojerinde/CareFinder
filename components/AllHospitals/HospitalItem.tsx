@@ -19,6 +19,8 @@ const HospitalItem: React.FC<HospitalItemProps> = ({
 }) => {
   const router = useRouter();
   const pathname = usePathname();
+
+  // CLearing the space in the hospital name
   const clearedHospitalName = hospitalName.replace(/\s/g, "");
 
   // This function programmatically navigates to a page to see all details about an hospital
@@ -32,6 +34,7 @@ const HospitalItem: React.FC<HospitalItemProps> = ({
     const selectedHospitals = allHospitals.find(
       (hos) => hos.hospitalName === hospitalName
     );
+    
     if (selectedHospitals) {
       updateSelectedHospitalState({
         name: hospitalName,

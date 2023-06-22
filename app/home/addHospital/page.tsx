@@ -44,6 +44,7 @@ const createHospital = async (data: Hospitalparams) => {
     selectedImage,
     state,
   } = data;
+
   const response = await fetch("/api/createhospital", {
     method: "POST",
     body: JSON.stringify({
@@ -109,6 +110,7 @@ const AddHospitalForm = () => {
     );
   };
 
+  // Form validations using Yup and Formik
   const validationSchema = Yup.object().shape({
     hospitalName: Yup.string().required("Hospital Name is required"),
     phoneNumber: Yup.string().required("Phone Number is required"),
@@ -118,7 +120,8 @@ const AddHospitalForm = () => {
     lga: Yup.string().required("LGA is required"),
     country: Yup.string().required("Country is required"),
   });
-  // Define initial form values
+  
+  // Initial form values
   const formik = useFormik({
     initialValues: {
       hospitalName: "",

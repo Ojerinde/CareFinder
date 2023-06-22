@@ -1,5 +1,5 @@
-import { ImSpinner10 } from "react-icons/im";
 import React from "react";
+import { ImSpinner10 } from "react-icons/im";
 
 import classes from "./LoadingSpinner.module.css";
 

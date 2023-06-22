@@ -25,7 +25,7 @@ const initialState: HospitalData = {
   hospitalName: "",
 };
 
-// Define the reducer function
+// Reducer function to update the from fields
 const reducer = (state: HospitalData, action: any) => {
   switch (action.type) {
     case "SET_COUNTRY":
@@ -66,7 +66,7 @@ const SearchHospitalForm: React.FC<Props> = ({
   // All available countries options
   const countryOptions = generateCountryForSelectField();
 
-  // Functions to update the states
+  // Functions to update the countries
   const setCountry = (country: string) => {
     dispatch({ type: "SET_COUNTRY", payload: country });
     // All available states options for the selected country
@@ -74,6 +74,7 @@ const SearchHospitalForm: React.FC<Props> = ({
     onSelect(country);
   };
 
+  // Functions to update the states
   const setState = (state: string) => {
     dispatch({ type: "SET_STATE", payload: state });
     // All available lgas options for the selected state
@@ -82,12 +83,14 @@ const SearchHospitalForm: React.FC<Props> = ({
     updateFilteredHospitals(filteredHospitals);
   };
 
+  // Functions to update the lga
   const setLGA = (lga: string) => {
     dispatch({ type: "SET_LGA", payload: lga });
     const filteredHospitals = onFilter(state.state, lga);
     updateFilteredHospitals(filteredHospitals);
   };
 
+  // Functions to update the hospital name
   const setHospitalName = (name: any) => {
     dispatch({ type: "SET_HOSPITAL_NAME", payload: name.target.value });
     const filteredHospitals = onFilterByName(name.target.value);

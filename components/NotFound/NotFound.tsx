@@ -1,7 +1,7 @@
 import React from "react";
+import { useRouter } from "next/navigation";
 import classes from "./NotFound.module.css";
 import "./NotFound.css";
-import { useRouter } from "next/navigation";
 
 const NotFound = () => {
   const router = useRouter();

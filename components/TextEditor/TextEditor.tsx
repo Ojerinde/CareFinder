@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/no-children-prop */
 "use client";
 import React, { FormEvent, useState } from "react";
 import ReactMarkdown from "react-markdown";

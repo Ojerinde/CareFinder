@@ -36,7 +36,6 @@ export async function POST(req: Request) {
 
   const client = await connectToDatabase();
 
-  //   Create database
   const db = client.db(`hospitals`);
 
   // Add document

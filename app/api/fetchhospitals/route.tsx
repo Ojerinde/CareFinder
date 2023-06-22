@@ -5,7 +5,9 @@ import { NextResponse } from "next/server";
 export async function POST(req: Request) {
   // Getting the request body
   const { country } = (await req.json()) as Hospitalparams;
+
   let client;
+
   try {
     client = await connectToDatabase();
   } catch (error) {

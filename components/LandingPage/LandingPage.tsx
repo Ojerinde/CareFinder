@@ -3,10 +3,9 @@ import RightAligned from "./RightAligned/RightAligned";
 import Services from "./Services/Services";
 import React from "react";
 import LandingHeader from "./LandingHeader/LandingHeader";
-
-import classes from "./LandingPage.module.css";
 import Footer from "../Footer/Footer";
 import Testimonials from "./Testimonials/Testimonials";
+import classes from "./LandingPage.module.css";
 
 const LandingPage = () => {
   return (

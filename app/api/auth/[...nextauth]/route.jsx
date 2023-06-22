@@ -13,6 +13,7 @@ const options = {
         const client = await connectToDatabase();
         const usersCollection = client.db(`auth`).collection("users");
 
+        // Checking if the email exists
         const user = await usersCollection.findOne({
           email: credentials.email.toLowerCase(),
         });

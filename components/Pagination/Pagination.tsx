@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 "use client";
 
 import React, { useState } from "react";
@@ -16,7 +15,6 @@ const Pagination: React.FC<PaginationProps> = ({
   itemsPerPage,
   totalItems,
   onChange,
-  end,
 }) => {
   const totalPages = Math.ceil(totalItems / itemsPerPage);
 

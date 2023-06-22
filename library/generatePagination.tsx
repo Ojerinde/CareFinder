@@ -4,13 +4,13 @@ export const generatePagination = function (
 ): Array<number | string> {
   const pagination: Array<number | string> = [];
 
-  // If there are less than or equal to 10 pages, show all page numbers
+  // If there are less than or equal to 5 pages, show all page numbers
   if (totalPages <= 5) {
     for (let i = 1; i <= totalPages; i++) {
       pagination.push(i);
     }
   }
-  // If there are more than 10 pages
+  // If there are more than 5 pages
   else {
     if (currentPage <= 5) {
       // Display page numbers from 1 to 6

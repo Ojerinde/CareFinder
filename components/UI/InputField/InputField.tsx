@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
 interface Props {
   id?: string;

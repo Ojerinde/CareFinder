@@ -6,6 +6,7 @@ const generateCountryForSelectField = () => {
     { label: "Kenya", value: "Kenya" },
   ];
 };
+
 const generateStatesForSelectField = (coutryName: string) => {
   if (coutryName.toLowerCase() !== "nigeria") return [];
 
@@ -15,6 +16,7 @@ const generateStatesForSelectField = (coutryName: string) => {
   }));
   return modifiedStates;
 };
+
 const generateLgasForSelectField = (stateName: string) => {
   const foundState = allStates.find((state) => state.state === stateName);
   if (!foundState) {

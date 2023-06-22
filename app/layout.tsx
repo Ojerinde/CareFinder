@@ -4,11 +4,6 @@ import { SessionProvider } from "next-auth/react";
 import AppContextProvider from "@/store/AppContext";
 import "@/stylesheets/main.scss";
 
-// export const metadata = {
-//   title: "Solve your health problem",
-//   description: "Carefinder connects hospitals and users",
-// };
-
 // The layout file by default receives other files as children.
 interface RootLayoutProps {
   children: React.ReactNode;

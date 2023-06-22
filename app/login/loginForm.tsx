@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { AppContext } from "@/store/AppContext";
 import classes from "./LoginForm.module.css";
 
+// Tostify handler
 export const showToastMessage = (mode: string, message: string) => {
   if (mode === "success") {
     toast(message, {
@@ -24,6 +25,7 @@ export const showToastMessage = (mode: string, message: string) => {
     });
   }
 };
+
 const Form = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [passwordIcon] = useState<boolean>(true);

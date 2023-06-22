@@ -15,10 +15,14 @@ import { useSession } from "next-auth/react";
 import Button from "@/components/UI/Button/Button";
 
 const HospitalComponent = ({ params }: { params: { hospitalId: string } }) => {
+  // Getting the logged in user.
   const { data: session } = useSession();
   const [sharing, setSharing] = useState<boolean>(false);
+
+  // Getting the dynamic id
   const hospitalId = params.hospitalId;
   const { allHospitals } = useContext(AppContext);
+
   const hospital: any = allHospitals.find(
     (hos) => hos.hospitalName.replace(/\s/g, "") === hospitalId
   );
@@ -52,6 +56,7 @@ const HospitalComponent = ({ params }: { params: { hospitalId: string } }) => {
     },
   ];
 
+  // The function that handles sharing the csv to the email
   const shareCSVHandler = async () => {
     setSharing(() => true);
     try {
@@ -73,6 +78,8 @@ const HospitalComponent = ({ params }: { params: { hospitalId: string } }) => {
       setSharing(() => false);
     }
   };
+
+  // The function that handles dowloading the csv.
   const downloadCSVHandler = () => {
     try {
       const data = downloadCSV("An hospitals", csvCon);
@@ -82,7 +89,7 @@ const HospitalComponent = ({ params }: { params: { hospitalId: string } }) => {
     }
   };
 
-  // / Navigate back
+  //  Navigate back logic
   const pathname = usePathname();
   const lastIndexOfSlash = pathname?.lastIndexOf("/");
   const goBackHandler = () => {

@@ -22,18 +22,18 @@ export async function POST(req: Request) {
     });
   }
 
-  //   Do not store a plain penalty
+  //   Hasing password
   const hashedPassword = await hashPassword(password);
 
   const client = await connectToDatabase();
 
-  //   Create database
   const db = client.db("auth");
 
   //   If the user exist.
   const existingUser = await db
     .collection("users")
     .findOne({ email: email.toLowerCase() });
+
   if (existingUser) {
     client.close();
     return NextResponse.json({
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     });
   }
 
-  // Add document
+  // Add document to the collection
   await db.collection("users").insertOne({
     email: email.toLowerCase(),
     password: hashedPassword,

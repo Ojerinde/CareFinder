@@ -23,6 +23,7 @@ const Login = () => {
     }
   };
 
+  // Authethication check
   const { data: session } = useSession();
   useEffect(() => {
     if (session) {

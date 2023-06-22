@@ -28,12 +28,17 @@ export const downloadCSV = function (
   if (selectedHospitals.length < 1) {
     throw new Error("You haven't selected any hospital");
   }
+  // Clearing the commas in the address field
   const modifiedSelectedHospitals = selectedHospitals.map((hos) => ({
     ...hos,
     address: hos.address.replaceAll(",", " "),
   }));
+
   const csvContent = convertToCSV(modifiedSelectedHospitals);
+  // Creating a blob file
   const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+
+  // Creating a blob url
   const url = URL.createObjectURL(blob);
 
   const link = document.createElement("a");
@@ -57,6 +62,7 @@ export const shareCSVByEmail = async function (
   }
 
   const csvContent = convertToCSV(selectedHospitals);
+  // A post request to my api route(Server component)
   const response = await fetch("/api/shareViaEmail", {
     method: "POST",
     body: JSON.stringify({ to, subject, body, csvContent }),

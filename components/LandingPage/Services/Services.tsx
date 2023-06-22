@@ -1,7 +1,6 @@
-import Service from "./Service";
 import React from "react";
-
 import { FaUserNurse, FaRegHospital, FaFileExport } from "react-icons/fa";
+import Service from "./Service";
 import { SlShareAlt } from "react-icons/sl";
 import classes from "./Services.module.css";
 const services = [
