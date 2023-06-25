@@ -100,8 +100,6 @@
       background-clip: text;
       letter-spacing: 0.2rem;
     }
-    & span {
-    }
   }
   &__icons {
     display: flex;
@@ -110,7 +108,12 @@
     width: 25%;
     padding: 1.5rem 0;
     border: 0.2rem solid $primary-light-color;
-
+    @media only screen and (max-width: 900px) {
+      width: 50%;
+    }
+    @media only screen and (max-width: 600px) {
+      width: 100%;
+    }
     & svg {
       fill: $primary-light-color;
       width: 4rem;

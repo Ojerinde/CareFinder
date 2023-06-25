@@ -1,5 +1,6 @@
 .spinner__box {
   display: flex;
+  margin-top: 2rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;

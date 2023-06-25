@@ -120,7 +120,7 @@ const AddHospitalForm = () => {
     lga: Yup.string().required("LGA is required"),
     country: Yup.string().required("Country is required"),
   });
-  
+
   // Initial form values
   const formik = useFormik({
     initialValues: {
@@ -248,7 +248,7 @@ const AddHospitalForm = () => {
           {/* New row */}
           <div className="my-4 flex justify-between">
             {/* Left */}
-            <div className="basis-[45%]">
+            <div className="basis-[47%]">
               <Input
                 id="email"
                 label="Email"
@@ -269,7 +269,7 @@ const AddHospitalForm = () => {
               </div>
             </div>
             {/* Right */}
-            <div className="basis-[45%]">
+            <div className="basis-[47%]">
               <SelectInput
                 id={generateUniqueIdentifier()}
                 key={generateUniqueIdentifier()}
@@ -297,7 +297,7 @@ const AddHospitalForm = () => {
           </div>
           <div className="my-4 flex justify-between">
             {/* Left */}
-            <div className="basis-[45%]">
+            <div className="basis-[47%]">
               <SelectInput
                 id={generateUniqueIdentifier()}
                 key={generateUniqueIdentifier()}
@@ -322,12 +322,12 @@ const AddHospitalForm = () => {
               </div>
             </div>
             {/* Right */}
-            <div className="basis-[45%]">
+            <div className="basis-[47%]">
               <SelectInput
                 id={generateUniqueIdentifier()}
                 key={generateUniqueIdentifier()}
                 label="Select LGA"
-                placeholder="Choose local government"
+                placeholder="Choose lga"
                 onSelect={(selectedOption: any) => {
                   let event = {
                     target: { name: "lga", value: selectedOption },
@@ -366,10 +366,10 @@ const AddHospitalForm = () => {
                     width: `${progressPercent}%`,
                     backgroundColor: "green",
                     marginTop: "-1.5rem",
-                    fontSize: "1.6rem",
+                    fontSize: "1.5rem",
                   }}
                 >
-                  Uploading percentage:{" "}
+                  Uploading percentage:
                   <span style={{ fontWeight: "600" }}>{progressPercent}%</span>
                 </div>
               )}
