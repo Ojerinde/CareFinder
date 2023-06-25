@@ -6,6 +6,7 @@ interface UserData {
   isLoggedIn: boolean;
   email: string | null | undefined;
 }
+
 interface AppInterface {
   children: React.ReactNode;
 }
