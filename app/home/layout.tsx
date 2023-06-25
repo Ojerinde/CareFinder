@@ -1,6 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-
 import Header from "@/components/Header/Header";
 import { useRouter } from "next/navigation";
 import React, { useContext, useEffect, useState } from "react";
@@ -13,9 +11,10 @@ interface HomeLayout {
 }
 
 export default function Layout({ children }: HomeLayout) {
+  // Extracting data from the contaext/
   const { isLoggedIn } = useContext(AppContext);
 
-  // Aunthentication check
+  // Aunthentication check for automatice redirection
   const router = useRouter();
   const [pageIsLoading, setPageIsLoading] = useState<boolean>(true);
 

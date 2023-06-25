@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
 import React, { useContext, useState } from "react";
 import { MdFileDownload, MdShare } from "react-icons/md";
@@ -11,6 +10,7 @@ import { downloadCSV, shareCSVByEmail } from "@/library/shareFIle";
 import AllHospitals from "@/components/AllHospitals/AllHospitals";
 import { useSession } from "next-auth/react";
 
+// A function to fetch all hospitals from the backend.
 const fetchHospitals = async (country: string) => {
   const response = await fetch("/api/fetchhospitals", {
     method: "POST",
@@ -27,9 +27,14 @@ const fetchHospitals = async (country: string) => {
 };
 
 const Home = () => {
+  // Getting access to the session
   const { data: session } = useSession();
+
+  // State managements
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [sharing, setSharing] = useState<boolean>(false);
+
+  // Getting access to the context created.
   const {
     filteredHospitals,
     allHospitals,
@@ -38,6 +43,7 @@ const Home = () => {
     updateFilteredHospitals,
   } = useContext(AppContext);
 
+  // Functions to fetch all hospitals in a particular country.
   const fetchCountryHospitals = async (data: string) => {
     try {
       setIsLoading(true);
@@ -72,6 +78,7 @@ const Home = () => {
     return filteredArray;
   };
 
+  // Function to share the selected hospital as CV to the loggedin user
   const shareCSVHandler = async () => {
     setSharing(() => true);
     try {
@@ -93,6 +100,8 @@ const Home = () => {
       setSharing(() => false);
     }
   };
+
+  // Function to download the selected hospital as CV to the loggedin user
   const downloadCSVHandler = () => {
     try {
       const data = downloadCSV("List of hospitals", selectedHospitals);

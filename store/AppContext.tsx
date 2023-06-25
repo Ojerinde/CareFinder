@@ -2,15 +2,18 @@
 import { Hospitalparams } from "@/app/home/addHospital/page";
 import React, { useCallback, useState } from "react";
 
+// TYpe for UserData
 interface UserData {
   isLoggedIn: boolean;
   email: string | null | undefined;
 }
 
+// Type for AppInterface
 interface AppInterface {
   children: React.ReactNode;
 }
 
+// Type for all the columns for CSV file
 export interface CSV {
   name: string;
   email: string;
@@ -21,6 +24,7 @@ export interface CSV {
   lga: string;
 }
 
+// Type for the context
 interface AppContextData {
   isLoggedIn: UserData;
   allHospitals: Hospitalparams[];
@@ -32,6 +36,7 @@ interface AppContextData {
   updateSelectedHospitalState: (hospital: CSV) => void;
 }
 
+// Creating a context. THe essence of the object pass to it is for VSCode auto completion.
 export const AppContext = React.createContext<AppContextData>({
   isLoggedIn: { isLoggedIn: false, email: "" },
   allHospitals: [],
@@ -43,7 +48,9 @@ export const AppContext = React.createContext<AppContextData>({
   updateSelectedHospitalState: (hospital) => {},
 });
 
+// Creating the context  provider. This component will be wrapped around my root app.
 const AppContextProvider: React.FC<AppInterface> = ({ children }) => {
+  // Context state managements
   const [isLoggedIn, setIsLoggedIn] = useState<UserData>({
     isLoggedIn: false,
     email: "",
@@ -54,6 +61,7 @@ const AppContextProvider: React.FC<AppInterface> = ({ children }) => {
   );
   const [selectedHospitals, setSelectedHospitals] = useState<any[]>([]);
 
+  // FUnctions to update states. Usecallback is used to memoize the functions.
   const updateLoggedInState = useCallback((data: UserData) => {
     setIsLoggedIn(data);
   }, []);
@@ -61,6 +69,7 @@ const AppContextProvider: React.FC<AppInterface> = ({ children }) => {
   const updateAllHospitalState = useCallback((data: Hospitalparams[]) => {
     setAllHospitals(data);
   }, []);
+
   const updateFilteredHospitals = useCallback((data: Hospitalparams[]) => {
     setFilteredHospitals(data);
   }, []);
@@ -74,6 +83,7 @@ const AppContextProvider: React.FC<AppInterface> = ({ children }) => {
     [selectedHospitals]
   );
 
+  // This are the datas and functions that can be accessed from the children components.
   const data: AppContextData = {
     isLoggedIn,
     allHospitals,

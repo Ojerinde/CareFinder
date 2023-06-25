@@ -27,12 +27,16 @@ export const showToastMessage = (mode: string, message: string) => {
 };
 
 const Form = () => {
+  // State managements
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [passwordIcon] = useState<boolean>(true);
 
   const router = useRouter();
+
+  // Extracting data from the context
   const { updateLoggedInState } = useContext(AppContext);
 
+  // Yup schema configurations
   const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email is required").email("Email is invalid"),
     password: Yup.string()
@@ -41,6 +45,7 @@ const Form = () => {
       .max(40, "Password must not exceed 40 characters"),
   });
 
+  // Formik validation configurations
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -53,11 +58,13 @@ const Form = () => {
     async onSubmit(values, actions) {
       const { password, email } = values;
       try {
+        // Calling the provided signIn function by NextAuth
         const result = await signIn("credentials", {
           redirect: false,
           email,
           password,
         });
+        // Handling error
         if (!result?.error) {
           updateLoggedInState({ email: email, isLoggedIn: true });
           showToastMessage("success", "Login successfully. Redirecting...");
@@ -68,7 +75,7 @@ const Form = () => {
       } catch (error: any) {
         showToastMessage("error", error.message);
       } finally {
-        // Enable submitting of form again
+        // Enabling the submitting of the form again
         actions.setSubmitting(false);
       }
     },

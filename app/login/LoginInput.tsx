@@ -2,7 +2,6 @@
 import React, { ChangeEvent, FocusEvent } from "react";
 import { AiFillEyeInvisible } from "react-icons/ai";
 import { AiFillEye } from "react-icons/ai";
-
 import classes from "./LoginInput.module.css";
 
 interface Props {

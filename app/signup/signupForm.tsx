@@ -19,8 +19,12 @@ export interface UserData {
   email: string;
 }
 
+// This function will be triggered when the submit function is clicked.
 async function createUser(userData: UserData) {
+  // Destructuring UserData
   const { firstName, lastName, gender, password, email } = userData;
+
+  // Seding a request to my backend
   const response = await fetch("/api/auth/signup", {
     method: "POST",
     body: JSON.stringify({ email, firstName, lastName, gender, password }),
@@ -37,20 +41,27 @@ async function createUser(userData: UserData) {
 
 const SignUpForm = () => {
   const router = useRouter();
+
+  // State managements
   const [showConfirmPassword, setShowConfirmPassword] =
     useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [passwordIcon] = useState<boolean>(true);
   const [gender, setGender] = useState<string>("Male");
+
+  // All allowed genders
   const genders = [
     { label: "Male", value: "Male" },
     { label: "Female", value: "Female" },
     { label: "Other", value: "Other" },
   ];
+
+  // A function to update gender
   const updateGender = (data: string) => {
     setGender(() => data);
   };
 
+  // Yup schema configurations
   const validationSchema = Yup.object().shape({
     firstName: Yup.string().required("First Name is required"),
     lastName: Yup.string().required("Last Name is required"),
@@ -62,8 +73,9 @@ const SignUpForm = () => {
     confirmPassword: Yup.string()
       .required("Confirm Password is required")
       .oneOf([Yup.ref("password"), ""], "Confirm Password does not match"),
-    // acceptTerms: Yup.bool().oneOf([true], "Accept Terms is required"),
   });
+
+  // Formik validation configurations
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -79,6 +91,7 @@ const SignUpForm = () => {
     async onSubmit(values, actions) {
       const { firstName, lastName, password, email } = values;
       try {
+        // Calling the createUser function
         const result = await createUser({
           firstName,
           lastName,
@@ -86,7 +99,7 @@ const SignUpForm = () => {
           password,
           email,
         });
-
+        // Handling the error
         if (result.status) {
           showToastMessage("success", result.message);
           setTimeout(() => {

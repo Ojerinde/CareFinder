@@ -4,8 +4,6 @@ import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 import Form, { showToastMessage } from "./loginForm";
 import { FcGoogle } from "react-icons/fc";
-// import { FaFacebook } from "react-icons/fa";
-// import { AiFillTwitterCircle } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import { signIn, useSession } from "next-auth/react";
 import { AppContext } from "@/store/AppContext";
@@ -23,7 +21,7 @@ const Login = () => {
     }
   };
 
-  // Authethication check
+  // Authethication check for automatic redirection
   const { data: session } = useSession();
   useEffect(() => {
     if (session) {

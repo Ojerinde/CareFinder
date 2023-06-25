@@ -70,9 +70,10 @@ const createHospital = async (data: Hospitalparams) => {
 };
 
 const AddHospitalForm = () => {
+  // State managements
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [progressPercent, setProgressPercent] = useState(0);
-  const [uploading, setUploading] = useState(false);
+  const [progressPercent, setProgressPercent] = useState<number>(0);
+  const [uploading, setUploading] = useState<boolean>(false);
   const [markDownContent, setMarkDowContent] = useState<string>("");
   const router = useRouter();
 
@@ -80,6 +81,7 @@ const AddHospitalForm = () => {
     setMarkDowContent(() => data);
   };
 
+  // Logic to upload the uploaded image to firebase, get the firebase url to the image and pass it along the hospital details object that is stored on MongoDB
   const handleImageUpload = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -90,6 +92,7 @@ const AddHospitalForm = () => {
     const storageRef = ref(storage, `files/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
 
+    // Getting the uploading progress percentage
     uploadTask.on(
       "state_changed",
       (snapshot) => {
@@ -102,6 +105,7 @@ const AddHospitalForm = () => {
         alert(error);
       },
       () => {
+        // Getting the url
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setSelectedImage(downloadURL);
           setUploading(false);

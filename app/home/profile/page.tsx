@@ -4,6 +4,7 @@ import Image from "next/image";
 import React from "react";
 
 const Profile = () => {
+  // Getting the signedin user email
   const { data: session } = useSession();
   const email = session?.user?.email;
   return (
