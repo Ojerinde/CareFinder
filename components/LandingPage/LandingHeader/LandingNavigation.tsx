@@ -21,10 +21,19 @@ const LandingNavigation: React.FC = () => {
       </Link>
       <ul className={classes.ul}>
         <li className={classes.li}>
-          <CustomNavLink href={{ pathname: "/" }}>Home</CustomNavLink>
+          <CustomNavLink exact href={{ pathname: "/" }}>
+            Home
+          </CustomNavLink>
         </li>{" "}
         <li className={classes.li}>
-          <CustomNavLink href={{ pathname: "/about" }}>About</CustomNavLink>
+          <CustomNavLink exact href={{ pathname: "/about" }}>
+            About
+          </CustomNavLink>
+        </li>{" "}
+        <li className={classes.li}>
+          <CustomNavLink exact href={{ pathname: "/hospitals" }}>
+            Search
+          </CustomNavLink>
         </li>
       </ul>
       <nav className={classes.nav}>

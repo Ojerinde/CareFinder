@@ -2,12 +2,24 @@
   flex-basis: 22%;
   padding: 2rem;
   background-color: var(--primary-color);
+  box-shadow: 0 2px 4px #333;
   color: var(--secondary-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-radius: 1.5rem;
   align-items: center;
+  transition: all 0.3s;
+}
+
+.li:hover {
+  background-color: var(--primary-light-color);
+  transform: translateY(-0.4);
+  cursor: pointer;
+}
+
+.li:active {
+  transform: translateY(-0.2);
 }
 .div svg {
   width: 6rem;

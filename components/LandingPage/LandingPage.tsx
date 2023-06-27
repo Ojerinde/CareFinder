@@ -6,10 +6,12 @@ import LandingHeader from "./LandingHeader/LandingHeader";
 import Footer from "../Footer/Footer";
 import Testimonials from "./Testimonials/Testimonials";
 import classes from "./LandingPage.module.css";
+import { ToastContainer } from "react-toastify";
 
 const LandingPage = () => {
   return (
     <div className={classes.landingpage} id="landing__page">
+      <ToastContainer />
       <LandingHeader />
       <LeftAligned />
       <RightAligned />

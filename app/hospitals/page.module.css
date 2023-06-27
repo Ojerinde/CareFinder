@@ -1,0 +1,11 @@
+.figure {
+  height: 7rem;
+  width: 10rem;
+  margin-bottom: 2rem;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}

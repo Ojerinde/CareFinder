@@ -2,7 +2,7 @@ import React from "react";
 interface Props {
   id?: string;
   field?: string;
-  label: string;
+  label?: string;
   type?: string;
   placeholder?: string;
   invalid?: boolean;
@@ -22,7 +22,7 @@ const InputField: React.FC<Props> = ({
 }) => {
   return (
     <div className="input__group">
-      <label>{label}</label>
+      {label && <label>{label}</label>}
       {field === "input" ? (
         <input {...others} multiple={multiple} type={type}></input>
       ) : (

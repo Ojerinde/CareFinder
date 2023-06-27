@@ -28,7 +28,7 @@ export interface Hospitalparams {
   lga: string;
   markDownContent: string;
   phoneNumber: string;
-  selectedImage: string | null;
+  selectedImage: string | any | null;
   state: string;
 }
 

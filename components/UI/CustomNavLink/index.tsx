@@ -6,7 +6,7 @@ interface Props {
   href: { pathname: string; query?: { track: string } };
   exact?: Boolean;
   children?: React.ReactNode;
-  className?: "header__active" | "" | undefined;
+  className?: "active__nav" | "" | undefined;
 }
 
 const CustomNavLink: React.FC<Props> = ({
@@ -21,9 +21,8 @@ const CustomNavLink: React.FC<Props> = ({
     : pathname?.startsWith(href.pathname);
 
   if (isActive) {
-    others.className += " activeNav";
+    others.className = "active__nav";
   }
-
   return (
     <Link href={href} {...others} legacyBehavior>
       {children}

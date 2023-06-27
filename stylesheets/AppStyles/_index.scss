@@ -19,6 +19,11 @@ body {
   background-color: $secondary-color;
   font-weight: 300;
 }
+.active__nav {
+  color: rgba($secondary-light-color, 0.5);
+  border-bottom: 0.2rem solid $primary-color;
+  border-left: 0.2rem solid $primary-color;
+}
 
 @media only screen and (max-width: $bp--large) {
   html {

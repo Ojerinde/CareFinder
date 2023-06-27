@@ -11,7 +11,7 @@ import AllHospitals from "@/components/AllHospitals/AllHospitals";
 import { useSession } from "next-auth/react";
 
 // A function to fetch all hospitals from the backend.
-const fetchHospitals = async (country: string) => {
+export const fetchHospitals = async (country: string) => {
   const response = await fetch("/api/fetchhospitals", {
     method: "POST",
     body: JSON.stringify({
