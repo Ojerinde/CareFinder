@@ -11,8 +11,8 @@
 }
 
 .button {
-  width: 17.8rem;
-  height: 5.6rem;
+  padding: 0.8rem 4rem;
+  border-radius: 0.2rem;
   font-size: 1.4rem;
   background: var(--primary-color);
   color: #ffffff;

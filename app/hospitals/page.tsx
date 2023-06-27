@@ -6,6 +6,8 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { Hospitalparams } from "../home/addHospital/page";
 import classes from "./page.module.css";
 import Button from "@/components/UI/Button/Button";
+import { showToastMessage } from "../login/loginForm";
+import { ToastContainer } from "react-toastify";
 
 // A function to fetch all hospitals from the backend.
 const fetchHospitals = async (country: string) => {
@@ -55,6 +57,10 @@ const Hospitals: React.FC = () => {
   // Form submit handler
   const searchHandler = (e: FormEvent) => {
     e.preventDefault();
+    if (searchedTerm === "") {
+      showToastMessage("success", "Enter hospital detail");
+      return;
+    }
     setFilteredHospitals((prev) => filterArray(searchedTerm, hospitals));
   };
 
@@ -67,6 +73,7 @@ const Hospitals: React.FC = () => {
 
   return (
     <section>
+      <ToastContainer />
       <LandingNavigation />
       <div className="bg-secondary_light_color py-8 px-12">
         <form
@@ -81,7 +88,7 @@ const Hospitals: React.FC = () => {
             onChange={setHospitalName}
             value={searchedTerm}
           />
-          <Button type="submit" className={`max-sm:hidden ${classes.button}`}>
+          <Button type="submit" className={`${classes.button}`}>
             Search
           </Button>
         </form>
@@ -104,7 +111,7 @@ const Hospitals: React.FC = () => {
                 <h3 className="text-[1.4rem] font-medium">
                   {item.hospitalName}
                 </h3>
-                <p className="text-gray-500 text-[1.2rem]">{item.address}</p>
+                <p className="text-gray-500 text-[1.1rem]">{item.address}</p>
               </div>
             ))}
           </div>
