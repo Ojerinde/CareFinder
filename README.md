@@ -4,12 +4,17 @@
 
 CareFinder is a search engine for Hospitals. Currently available only in Nigeria.
 
+### Un-Logged-In user.
+* User that are no logged in can only search for hospitals. They can not export nor download.
+  * User can search for hospital by name, address, country, state or lga.
+ 
+### Logged-In User
 * The main page can only be access after signing up and logging in.
 * All hospitals for a country will be display after selecting a country, and can the be further filtered by state and local goverment. Right now, only states such as Kwara, Lagos, Abia has some tests hospitals.
 * You can add hopital and also write some markdown to describe what the hospital do.
-* On the All hospitals page, You can select some hostiplat by checking the checkbox and clicking on the share icon. This will export the selected hospita to your email.
-* You can as well download the selected hospital as a csv file.
-* User can view the full details of each hospital by clicking on the hospital item. You can further download or export to your gmail likewise. 
+* On the all hospitals page, You can share hospitals as a CSV file by selecting hospitals by checking the checkbox and clicking on the share icon. This will export the selected hospital(s) to your email.
+* You can as well download the selected hospital as a CSV file.
+* User can view the full details of each hospital by clicking on the hospital item. You can as well download or export to your gmail likewise. 
 
 
 
