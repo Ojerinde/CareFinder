@@ -43,6 +43,7 @@ const filterArray = (searchTerm: string, hospitals: Hospitalparams[]) => {
 };
 
 const Hospitals: React.FC = () => {
+  const [searched, setSearched] = useState<boolean>(false);
   const [searchedTerm, setSearchedTerm] = useState<string>("");
   const [hospitals, setHospitals] = useState<Hospitalparams[]>([]);
   const [filteredHospitals, setFilteredHospitals] = useState<Hospitalparams[]>(
@@ -57,16 +58,22 @@ const Hospitals: React.FC = () => {
   // Form submit handler
   const searchHandler = (e: FormEvent) => {
     e.preventDefault();
+    setSearched(true);
     if (searchedTerm === "") {
       showToastMessage("success", "Enter hospital detail");
       return;
     }
-    setFilteredHospitals((prev) => filterArray(searchedTerm, hospitals));
+    console.log(hospitals);
+    setFilteredHospitals((prev) => {
+      console.log(filterArray(searchedTerm, hospitals));
+      return filterArray(searchedTerm, hospitals);
+    });
   };
 
   useEffect(() => {
     (async () => {
       const result = await fetchHospitals("nigeria");
+      console.log(result);
       setHospitals((prev) => result.hospitals);
     })();
   }, []);
@@ -94,26 +101,32 @@ const Hospitals: React.FC = () => {
         </form>
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {filteredHospitals.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center h-[15rem]"
-              >
-                <figure className={classes.figure}>
-                  <Image
-                    src={item.selectedImage}
-                    alt={item.hospitalName}
-                    width={1000}
-                    height={1000}
-                    className={classes.image}
-                  />
-                </figure>
-                <h3 className="text-[1.4rem] font-medium">
-                  {item.hospitalName}
-                </h3>
-                <p className="text-gray-500 text-[1.1rem]">{item.address}</p>
-              </div>
-            ))}
+            {searched && filteredHospitals?.length > 0 ? (
+              filteredHospitals?.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-lg shadow-md p-4 flex flex-col items-center h-[15rem]"
+                >
+                  <figure className={classes.figure}>
+                    <Image
+                      src={item.selectedImage}
+                      alt={item.hospitalName}
+                      width={1000}
+                      height={1000}
+                      className={classes.image}
+                    />
+                  </figure>
+                  <h3 className="text-[1.4rem] font-medium">
+                    {item.hospitalName}
+                  </h3>
+                  <p className="text-gray-500 text-[1.1rem]">{item.address}</p>
+                </div>
+              ))
+            ) : (
+              <p className="w-screen text-center mx-auto text-[1.8rem] text-primary_light_color">
+                No hospital matched searched term
+              </p>
+            )}
           </div>
         </div>
       </div>
