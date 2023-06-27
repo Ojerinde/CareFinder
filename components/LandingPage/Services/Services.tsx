@@ -2,6 +2,8 @@ import React from "react";
 import { FaUserNurse, FaRegHospital, FaFileExport } from "react-icons/fa";
 import Service from "./Service";
 import { SlShareAlt } from "react-icons/sl";
+import { ToastContainer } from "react-toastify";
+
 import classes from "./Services.module.css";
 const services = [
   {
@@ -27,21 +29,24 @@ const services = [
 ];
 const Services = () => {
   return (
-    <section className={classes.services} id="services">
-      <div className={classes.div}>
-        <h1 className={classes.h1}>See Our Services</h1>
-      </div>
-      <ul className={classes.ul}>
-        {services.map((service, index) => (
-          <Service
-            key={index}
-            description={service.description}
-            name={service.name}
-            icon={service.icon}
-          />
-        ))}
-      </ul>
-    </section>
+    <>
+      <ToastContainer />
+      <section className={classes.services} id="services">
+        <div className={classes.div}>
+          <h1 className={classes.h1}>See Our Services</h1>
+        </div>
+        <ul className={classes.ul}>
+          {services.map((service, index) => (
+            <Service
+              key={index}
+              description={service.description}
+              name={service.name}
+              icon={service.icon}
+            />
+          ))}
+        </ul>
+      </section>
+    </>
   );
 };
 export default Services;
