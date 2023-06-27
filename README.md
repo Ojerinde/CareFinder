@@ -1,6 +1,7 @@
 # CareFinder
 
-![Alt text](public/images/image.png)
+![image](https://github.com/Ojerinde/CareFinder/assets/104495751/74a561fb-a8eb-4db0-bc02-b4cebc3b6ea1)
+
 
 CareFinder is a search engine for Hospitals. Currently available only in Nigeria.
 
@@ -15,8 +16,6 @@ CareFinder is a search engine for Hospitals. Currently available only in Nigeria
 * On the all hospitals page, You can share hospitals as a CSV file by selecting hospitals by checking the checkbox and clicking on the share icon. This will export the selected hospital(s) to your email.
 * You can as well download the selected hospital as a CSV file.
 * User can view the full details of each hospital by clicking on the hospital item. You can as well download or export to your gmail likewise. 
-
-
 
 ## Authentication
 
