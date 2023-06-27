@@ -4,8 +4,23 @@ import InputField from "@/components/UI/InputField/InputField";
 import Image from "next/image";
 import React, { FormEvent, useEffect, useState } from "react";
 import { Hospitalparams } from "../home/addHospital/page";
-import { fetchHospitals } from "../home/page";
 import classes from "./page.module.css";
+
+// A function to fetch all hospitals from the backend.
+const fetchHospitals = async (country: string) => {
+  const response = await fetch("/api/fetchhospitals", {
+    method: "POST",
+    body: JSON.stringify({
+      country,
+    }),
+    headers: { "Content-Type": "application/json" },
+  });
+  const data = await response.json();
+  if (!response.ok) {
+    throw new Error(data.message || "Something went wrong!");
+  }
+  return data;
+};
 
 // Search all key in each item
 const filterArray = (searchTerm: string, hospitals: Hospitalparams[]) => {
