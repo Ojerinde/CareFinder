@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { FormEvent, useEffect, useState } from "react";
 import { Hospitalparams } from "../home/addHospital/page";
 import classes from "./page.module.css";
+import Button from "@/components/UI/Button/Button";
 
 // A function to fetch all hospitals from the backend.
 const fetchHospitals = async (country: string) => {
@@ -80,6 +81,9 @@ const Hospitals: React.FC = () => {
             onChange={setHospitalName}
             value={searchedTerm}
           />
+          <Button type="submit" className={`max-sm:hidden ${classes.button}`}>
+            Search
+          </Button>
         </form>
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
