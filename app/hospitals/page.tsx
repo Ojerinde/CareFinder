@@ -25,7 +25,7 @@ const fetchHospitals = async (country: string) => {
   return data;
 };
 
-// Search all key in each item
+// Search every details in each item object
 const filterArray = (searchTerm: string, hospitals: Hospitalparams[]) => {
   return hospitals?.filter((item: any) => {
     for (let key in item) {
@@ -63,9 +63,7 @@ const Hospitals: React.FC = () => {
       showToastMessage("success", "Enter hospital detail");
       return;
     }
-    console.log(hospitals);
     setFilteredHospitals((prev) => {
-      console.log(filterArray(searchedTerm, hospitals));
       return filterArray(searchedTerm, hospitals);
     });
   };
@@ -73,7 +71,6 @@ const Hospitals: React.FC = () => {
   useEffect(() => {
     (async () => {
       const result = await fetchHospitals("nigeria");
-      console.log(result);
       setHospitals((prev) => result.hospitals);
     })();
   }, []);
@@ -85,13 +82,13 @@ const Hospitals: React.FC = () => {
       <div className="bg-secondary_light_color py-8 px-12">
         <form
           onSubmit={searchHandler}
-          className="py-4 w-[60%] mx-auto max-md:w-[80%]"
+          className="pt-4 pb-8 w-[60%] mx-auto max-md:w-[80%]"
         >
           <InputField
             id="hospitalName"
             name="hospitalName"
             type="text"
-            placeholder="Search by name, country, state, lga"
+            placeholder="Search for hospitals by name, country, state, lga"
             onChange={setHospitalName}
             value={searchedTerm}
           />
@@ -101,7 +98,8 @@ const Hospitals: React.FC = () => {
         </form>
         <div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-            {searched && filteredHospitals?.length > 0 ? (
+            {searched &&
+              filteredHospitals?.length > 0 &&
               filteredHospitals?.map((item, index) => (
                 <div
                   key={index}
@@ -119,11 +117,13 @@ const Hospitals: React.FC = () => {
                   <h3 className="text-[1.4rem] font-medium">
                     {item.hospitalName}
                   </h3>
-                  <p className="text-gray-500 text-[1.1rem]">{item.address}</p>
+                  <p className="text-gray-500 text-[1.1rem] tracking-wider">
+                    {item.address}
+                  </p>
                 </div>
-              ))
-            ) : (
-              <p className="w-screen text-center mx-auto text-[1.8rem] text-primary_light_color">
+              ))}
+            {searched && filteredHospitals?.length === 0 && (
+              <p className="w-full text-center mx-auto text-[1.8rem] text-primary_light_color">
                 No hospital matched searched term
               </p>
             )}
