@@ -40,12 +40,16 @@
   font-size: 1.6rem;
   font-weight: 500;
   border-radius: 1rem;
+  border: 0.1rem solid transparent;
   color: var(--secondary-light-color);
   background-color: var(--primary-color);
+  transition: all 0.3s;
 }
 
 .header__button:hover {
-  background-color: var(--primary-light-color);
+  background-color: var(--secondary-color);
+  border: 0.1rem solid var(--primary-color);
+  color: var(--primary-color);
 }
 
 .section {
@@ -80,7 +84,11 @@
 
 .right {
   flex-basis: 45%;
+  border-top-right-radius: 4rem;
+  border-bottom-right-radius: 4rem;
+  overflow: hidden;
 }
+
 .img {
   height: 100%;
   width: 100%;

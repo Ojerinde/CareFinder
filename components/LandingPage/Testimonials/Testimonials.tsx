@@ -1,6 +1,8 @@
 import React from "react";
 import classes from "./Testimonials.module.css";
 import Testimonial from "./Testimonial";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import sarah from "@/public/images/sarah.png";
 import john from "@/public/images/john.png";
 import emily from "@/public/images/emily.png";
@@ -33,8 +35,19 @@ const testimonials: Testimony[] = [
 ];
 
 const Testimonials = () => {
+  // Translating animation
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   return (
-    <section className={classes.testimonials}>
+    <motion.section
+      className={classes.testimonials}
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+      transition={{ duration: 0.8 }}
+    >
       <h1 className={classes.h1}>What Our Users Say</h1>
       <ul className={classes.ul}>
         {testimonials.map((tes, index) => (
@@ -46,7 +59,7 @@ const Testimonials = () => {
           />
         ))}
       </ul>
-    </section>
+    </motion.section>
   );
 };
 export default Testimonials;

@@ -35,5 +35,26 @@
         }
       }
     }
+    &__title {
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        100% 80%,
+        65% 80%,
+        50% 100%,
+        45% 80%,
+        0 80%
+      );
+      background-color: $secondary-color;
+      border: 0.2rem dashed $primary-light-color;
+      box-shadow: 0 1rem 2rem $primary-color;
+      padding: 1.5rem 2rem 2rem;
+      font-size: 1.6rem;
+      position: absolute;
+      z-index: 999;
+      top: -50%;
+      left: 48%;
+      transform: translate(-50%, -60%);
+    }
   }
 }

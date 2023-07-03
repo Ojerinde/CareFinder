@@ -1,8 +1,21 @@
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import React from "react";
 const Footer: React.FC = () => {
+  // Translating animation
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   return (
-    <footer className="bg-secondary_light_color py-16 px-32 flex justify-between max-lg:px-8">
+    <motion.footer
+      className="bg-secondary_light_color py-16 px-32 flex justify-between max-lg:px-8"
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+      transition={{ duration: 0.8 }}
+    >
       <div className="basis-[35%]">
         <h1 className="text-5xl text-primary_color font-bold mb-6">
           CareFinder
@@ -51,7 +64,7 @@ const Footer: React.FC = () => {
           Book an appointment
         </Link>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 export default Footer;

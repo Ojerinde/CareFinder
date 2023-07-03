@@ -3,6 +3,7 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Button from "../../UI/Button/Button";
+import { motion } from "framer-motion";
 import classes from "./LandingHeader.module.css";
 import LandingNavigation from "./LandingNavigation";
 
@@ -36,14 +37,21 @@ const LandingHeader = () => {
             Get Started
           </Button>
         </div>
-        <figure className={classes.right}>
-          <Image
-            src="/images/landingHeaderImg.png"
-            alt="Header Image"
-            width={700}
-            height={700}
-          />
-        </figure>
+        <motion.figure className={classes.right} whileHover={{ scale: 1.1 }}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.04 }}
+          >
+            <Image
+              src="/images/landingHeaderImg.png"
+              alt="Header Image"
+              width={800}
+              height={1000}
+            />
+          </motion.div>
+        </motion.figure>
       </section>
     </>
   );

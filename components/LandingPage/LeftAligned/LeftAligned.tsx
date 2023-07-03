@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 import classes from "./LeftAligned.module.css";
 import Button from "../../UI/Button/Button";
@@ -8,8 +10,20 @@ const LeftAligned = () => {
     const section = document.querySelector("#services") as HTMLElement;
     section.scrollIntoView({ behavior: "smooth", block: "start" });
   };
+  // Translating animation
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <section id="left__aligned">
+    <motion.section
+      id="left__aligned"
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+      transition={{ duration: 0.8 }}
+    >
       <h1 className={classes.h1}>
         Make a lasting impact on the future of your health
       </h1>
@@ -34,23 +48,27 @@ const LeftAligned = () => {
           </Button>
         </div>
         <figure className={classes.right}>
-          <Image
-            src="/images/2.png"
-            width={150}
-            height={400}
-            alt="carefinder"
-            style={{ marginBottom: "3rem" }}
-          />{" "}
-          <Image
-            src="/images/1.png"
-            width={150}
-            height={400}
-            alt="carefinder"
-            style={{ marginTop: "3rem" }}
-          />
+          <motion.div whileHover={{ scale: 1.2 }}>
+            <Image
+              src="/images/2.png"
+              width={150}
+              height={400}
+              alt="carefinder"
+              style={{ marginBottom: "3rem" }}
+            />
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.2 }}>
+            <Image
+              src="/images/1.png"
+              width={150}
+              height={400}
+              alt="carefinder"
+              style={{ marginTop: "3rem" }}
+            />
+          </motion.div>
         </figure>
       </li>
-    </section>
+    </motion.section>
   );
 };
 export default LeftAligned;

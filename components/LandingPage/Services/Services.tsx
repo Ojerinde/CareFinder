@@ -1,5 +1,7 @@
 import React from "react";
 import { FaUserNurse, FaRegHospital, FaFileExport } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import Service from "./Service";
 import { SlShareAlt } from "react-icons/sl";
 import { ToastContainer } from "react-toastify";
@@ -28,10 +30,22 @@ const services = [
   },
 ];
 const Services = () => {
+  // Translating animation
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
   return (
     <>
       <ToastContainer />
-      <section className={classes.services} id="services">
+      <motion.section
+        className={classes.services}
+        id="services"
+        ref={ref}
+        initial={{ opacity: 0, y: 40 }}
+        animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className={classes.div}>
           <h1 className={classes.h1}>See Our Services</h1>
         </div>
@@ -45,7 +59,7 @@ const Services = () => {
             />
           ))}
         </ul>
-      </section>
+      </motion.section>
     </>
   );
 };

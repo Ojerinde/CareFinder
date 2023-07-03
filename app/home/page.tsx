@@ -34,6 +34,10 @@ const Home = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [sharing, setSharing] = useState<boolean>(false);
 
+  // Share and download hover effect
+  const [share, setShare] = useState(false);
+  const [download, setDownload] = useState(false);
+
   // Getting access to the context created.
   const {
     filteredHospitals,
@@ -94,7 +98,6 @@ const Home = () => {
         showToastMessage("success", data.message);
       }
     } catch (error: any) {
-      console.log(error);
       showToastMessage("error", error.message);
     } finally {
       setSharing(() => false);
@@ -124,11 +127,23 @@ const Home = () => {
           <div className="home__icon--box">
             <h2>Result...</h2>
             <div className="flex justify-between">
-              <div onClick={shareCSVHandler}>
-                {sharing ? <LoadingSpinner /> : <MdShare />}
+              <div onClick={shareCSVHandler} className="relative">
+                {share && <p className="home__icon__title ">Share</p>}
+                {sharing ? (
+                  <LoadingSpinner />
+                ) : (
+                  <MdShare
+                    onMouseEnter={() => setShare(true)}
+                    onMouseLeave={() => setShare(false)}
+                  />
+                )}
               </div>
-              <div onClick={downloadCSVHandler}>
-                <MdFileDownload />
+              <div onClick={downloadCSVHandler} className="relative">
+                {download && <p className="home__icon__title ">Download</p>}
+                <MdFileDownload
+                  onMouseEnter={() => setDownload(true)}
+                  onMouseLeave={() => setDownload(false)}
+                />
               </div>
             </div>
           </div>

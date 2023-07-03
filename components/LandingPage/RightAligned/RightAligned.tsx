@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import classes from "./RightAligned.module.css";
 import Button from "../../UI/Button/Button";
 import { useRouter } from "next/navigation";
@@ -10,8 +12,22 @@ const RightAligned = () => {
   const navigateHandler = () => {
     router.push("/about");
   };
+
+  // Translating animation
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <li className={classes.rightaligned} id="right__aligned">
+    <motion.li
+      className={classes.rightaligned}
+      id="right__aligned"
+      ref={ref}
+      initial={{ opacity: 0, y: 40 }}
+      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
+      transition={{ duration: 0.8 }}
+    >
       <figure className={classes.left}>
         <Image
           src="/images/logo.png"
@@ -35,7 +51,7 @@ const RightAligned = () => {
           See more about us
         </Button>
       </div>
-    </li>
+    </motion.li>
   );
 };
 export default RightAligned;
