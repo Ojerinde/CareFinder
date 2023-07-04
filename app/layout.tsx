@@ -2,7 +2,7 @@ import React from "react";
 import Providers from "./Provider";
 
 export const metadata = {
-  title: "CareFinder",
+  title: "CareFinder: Hospital search engine",
   description: "Search for an hospital with ease",
 };
 

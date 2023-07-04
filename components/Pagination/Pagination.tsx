@@ -33,13 +33,14 @@ const Pagination: React.FC<PaginationProps> = ({
   };
 
   return (
-    <div className="w-full flex justify-end items-center text-sm font-medium mt-4 mb-6 text-tertiary_light_color">
+    <div className="pagination w-full flex justify-end items-center text-sm font-medium mt-4 mb-6 text-tertiary_light_color">
       <p className="mr-3 text-[1.5rem] text-tertiary_color tracking-wider">
         Showing page {page} of {totalPages}
       </p>
       <div className="flex items-center">
         <MdKeyboardArrowLeft
           onClick={prevHandler}
+          id="left"
           className={`h-14 w-14 fill-primary_color ${
             page === 1
               ? "cursor-not-allowed fill-secondary_light_color"
@@ -62,6 +63,7 @@ const Pagination: React.FC<PaginationProps> = ({
         ))}
         <MdKeyboardArrowRight
           onClick={nextHandler}
+          id="right"
           className={`h-14 w-14  fill-primary_color ${
             page === totalPages || totalPages < 1
               ? "cursor-not-allowed fill-secondary_light_color"

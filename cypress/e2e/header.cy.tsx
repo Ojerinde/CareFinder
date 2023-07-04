@@ -1,41 +1,40 @@
-describe("Header", () => {
-  it("should navigate to home page when logo is clicked", () => {
-    cy.visit("/home");
-
-    cy.get("#header__logo").click();
-
-    cy.url().should("include", "/home");
+describe("LandingNavigation", () => {
+  beforeEach(() => {
+    cy.visit("/");
   });
 
-  it("should navigate to addHospital page when add icon is clicked", () => {
-    cy.visit("/home");
+  it("should navigate to Home page when Home link is clicked", () => {
+    cy.contains("Home").click();
 
-    cy.get("#header__add").click();
-
-    cy.url().should("include", "/home/addHospital");
-  });
-
-  it("should navigate to profile page when profile icon is clicked", () => {
-    cy.visit("/home");
-
-    cy.get("#header__profile").click();
-
-    cy.url().should("include", "/home/profile");
-  });
-
-  it("should log out when logout button is clicked", () => {
-    cy.visit("/home");
-
-    cy.contains("Logout").click();
-
+    // Verify that the user is redirected to the Home page
     cy.url().should("include", "/");
   });
 
-  it("should navigate to login page when login link is clicked", () => {
-    cy.visit("/home");
+  it("should navigate to About page when About link is clicked", () => {
+    cy.contains("About").click();
 
+    // Verify that the user is redirected to the About page
+    cy.url().should("include", "/about");
+  });
+
+  it("should navigate to Search page when Search link is clicked", () => {
+    cy.contains("Search").click();
+
+    // Verify that the user is redirected to the Search page
+    cy.url().should("include", "/hospitals");
+  });
+
+  it("should navigate to Login page when Login button is clicked", () => {
     cy.contains("Login").click();
 
+    // Verify that the user is redirected to the Login page
     cy.url().should("include", "/login");
+  });
+
+  it("should navigate to Signup page when Signup button is clicked", () => {
+    cy.contains("Signup").click();
+
+    // Verify that the user is redirected to the Signup page
+    cy.url().should("include", "/signup");
   });
 });
