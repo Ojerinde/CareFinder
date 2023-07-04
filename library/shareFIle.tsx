@@ -1,3 +1,4 @@
+import { showToastMessage } from "@/app/login/loginForm";
 import { CSV } from "@/store/AppContext";
 
 const convertToCSV = function (data: object[]): string {
@@ -49,6 +50,16 @@ export const downloadCSV = function (
   URL.revokeObjectURL(url);
 
   return "Downloading";
+};
+
+// Function to download the selected hospital as CV to the loggedin user
+export const downloadCSVHandler = (selectedHospitals: any[]) => {
+  try {
+    const data = downloadCSV("List of hospitals", selectedHospitals);
+    showToastMessage("success", data);
+  } catch (error: any) {
+    showToastMessage("error", error.message);
+  }
 };
 
 export const shareCSVByEmail = async function (

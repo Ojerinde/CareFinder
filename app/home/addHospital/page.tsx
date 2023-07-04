@@ -2,23 +2,26 @@
 import React, { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { ToastContainer } from "react-toastify";
+import { useRouter } from "next/navigation";
+import { storage } from "@/config";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+// Componenets
 import SelectInput from "@/components/UI/SelectInput/SelectInput";
 import Input from "@/app/login/LoginInput";
-import classes from "./addHospital.module.css";
 import Button from "@/components/UI/Button/Button";
 import LoadingSpinner from "@/app/login/LoadingSpinner/LoadingSpinner";
 import TextEditor from "@/components/TextEditor/TextEditor";
+import { showToastMessage } from "@/app/login/loginForm";
+// Utils
 import {
   generateCountryForSelectField,
   generateLgasForSelectField,
   generateStatesForSelectField,
 } from "@/library/generators";
-import { useRouter } from "next/navigation";
-import { ToastContainer } from "react-toastify";
-import { storage } from "@/config";
-import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
+import { createHospital } from "@/library/hospitals";
 import { generateUniqueIdentifier } from "@/library/generateUniqueIdentifier";
-import { showToastMessage } from "@/app/login/loginForm";
+import classes from "./addHospital.module.css";
 
 export interface Hospitalparams {
   address: string;
@@ -31,43 +34,6 @@ export interface Hospitalparams {
   selectedImage: string | any | null;
   state: string;
 }
-
-const createHospital = async (data: Hospitalparams) => {
-  const {
-    address,
-    country,
-    email,
-    hospitalName,
-    lga,
-    markDownContent,
-    phoneNumber,
-    selectedImage,
-    state,
-  } = data;
-
-  const response = await fetch("/api/createhospital", {
-    method: "POST",
-    body: JSON.stringify({
-      address,
-      country,
-      email,
-      hospitalName,
-      lga,
-      markDownContent,
-      phoneNumber,
-      selectedImage,
-      state,
-    }),
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
-  const responseBody = await response.json();
-  if (!response.ok) {
-    throw new Error(responseBody.message || "Something went wrong!");
-  }
-  return responseBody;
-};
 
 const AddHospitalForm = () => {
   // State managements
