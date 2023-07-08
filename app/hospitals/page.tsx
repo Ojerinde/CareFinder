@@ -114,7 +114,7 @@ const Hospitals: React.FC = () => {
                       className={classes.image}
                     />
                   </figure>
-                  <h3 className="text-[1.4rem] font-medium">
+                  <h3 className="text-[1.3rem] font-medium text-center">
                     {item.hospitalName}
                   </h3>
                   <p className="text-gray-500 text-[1.1rem] tracking-wider">
