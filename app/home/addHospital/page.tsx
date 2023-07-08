@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { ToastContainer } from "react-toastify";
@@ -19,9 +19,11 @@ import {
   generateLgasForSelectField,
   generateStatesForSelectField,
 } from "@/library/generators";
-import { createHospital } from "@/library/hospitals";
+import { createHospital, fetchHospitals } from "@/library/hospitals";
 import { generateUniqueIdentifier } from "@/library/generateUniqueIdentifier";
 import classes from "./addHospital.module.css";
+import { requestTimeout } from "@/library/requestTimeout";
+import { AppContext } from "@/store/AppContext";
 
 export interface Hospitalparams {
   address: string;
@@ -46,6 +48,8 @@ const AddHospitalForm = () => {
   const updateMarkDownContent = (data: string) => {
     setMarkDowContent(() => data);
   };
+  const { updateAllHospitalState, updateFilteredHospitals } =
+    useContext(AppContext);
 
   // Logic to upload the uploaded image to firebase, get the firebase url to the image and pass it along the hospital details object that is stored on MongoDB
   const handleImageUpload = async (
@@ -113,15 +117,23 @@ const AddHospitalForm = () => {
           selectedImage,
           markDownContent,
         });
-        console.log(result);
         if (result.status) {
           showToastMessage("success", result.message);
-          setTimeout(() => {
-            router.push("/home");
-          }, 3000);
+          actions.setSubmitting(false);
+          try {
+            const result = await Promise.race([
+              fetchHospitals(values.country.toLowerCase()),
+              requestTimeout(120),
+            ]);
+            updateAllHospitalState(result?.hospitals);
+            updateFilteredHospitals(result?.hospitals);
+          } catch (error: any) {
+            showToastMessage("error", error.message);
+          }
+
+          await router.push("/home");
         }
       } catch (error: any) {
-        console.log(error);
         showToastMessage("error", error.message);
       } finally {
         actions.setSubmitting(false);

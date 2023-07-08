@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 "use client";
-import React, { useContext, useState } from "react";
+import React, { useContext,  useState } from "react";
 import { useSession } from "next-auth/react";
 import { MdFileDownload, MdShare } from "react-icons/md";
 import { ToastContainer } from "react-toastify";
@@ -55,6 +56,7 @@ const Home = () => {
       setIsLoading(false);
     }
   };
+
 
   // Filtering hospitals by state and lga
   const filterHospitalByStateAndLgaHandler = (

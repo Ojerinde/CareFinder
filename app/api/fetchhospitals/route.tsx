@@ -24,7 +24,7 @@ export async function POST(req: Request) {
   const collection = await db.collection(`${country}`);
   const hospitals = await collection.find({}).toArray();
   return NextResponse.json({
-    hospitals: hospitals,
+    hospitals: hospitals?.reverse(),
     status: true,
   });
 }

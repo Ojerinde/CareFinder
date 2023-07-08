@@ -100,7 +100,7 @@ const SearchHospitalForm: React.FC<Props> = ({
   return (
     <section className="w-full">
       <h1 className={classes.h1}>
-        Search for an hospital by country, state, lga or name.
+        Search for an hospital by country, state, local government or name.
       </h1>
       <form className="w-full mx-auto">
         <div className="flex justify-between">
