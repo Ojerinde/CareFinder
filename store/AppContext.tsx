@@ -33,7 +33,7 @@ interface AppContextData {
   updateLoggedInState: (data: UserData) => void;
   updateAllHospitalState: (hospitals: Hospitalparams[]) => void;
   updateFilteredHospitals: (hospitals: Hospitalparams[]) => void;
-  updateSelectedHospitalState: (hospital: CSV[] | []) => void;
+  updateSelectedHospitalState: (hospital: CSV) => void;
 }
 
 // Creating a context. THe essence of the object pass to it is for VSCode auto completion.
@@ -75,7 +75,7 @@ const AppContextProvider: React.FC<AppInterface> = ({ children }) => {
   }, []);
 
   const updateSelectedHospitalState = useCallback(
-    (data: any) => {
+    (data: CSV) => {
       setSelectedHospitals((prev) => {
         return [...selectedHospitals, data];
       });
